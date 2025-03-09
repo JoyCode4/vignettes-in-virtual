@@ -1,5 +1,5 @@
 
-import { ArrowRight, ArrowLeft, Github, Linkedin, Facebook, Instagram, Telegram } from 'lucide-react';
+import { ArrowRight, ArrowLeft, Github, Linkedin, Facebook, Instagram, MessageSquare } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import PageTransition from '@/components/PageTransition';
 import { useEffect, useRef } from 'react';
@@ -68,8 +68,8 @@ const Index = () => {
                   <a 
                     className="flex items-center justify-center gap-2 px-4 py-2 bg-black/30 rounded-full text-white hover:bg-white/10 transition-colors"
                   >
-                    <Telegram size={18} />
-                    <span>Telegram</span>
+                    <MessageSquare size={18} />
+                    <span>Message</span>
                   </a>
                   <a 
                     className="flex items-center justify-center gap-2 px-4 py-2 bg-black/30 rounded-full text-white hover:bg-white/10 transition-colors"
