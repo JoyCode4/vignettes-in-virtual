@@ -1,6 +1,6 @@
 
 import { useState } from 'react';
-import { ExternalLink, Github } from 'lucide-react';
+import { ExternalLink, Github, Play } from 'lucide-react';
 
 interface ProjectCardProps {
   title: string;
@@ -25,7 +25,7 @@ const ProjectCard = ({
 
   return (
     <div 
-      className={`group glass-card overflow-hidden ${isEven ? 'bg-medium-gray/20' : 'bg-medium-gray/30'}`}
+      className="neo-blur overflow-hidden rounded-2xl relative"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -36,20 +36,27 @@ const ProjectCard = ({
             style={{ backgroundImage: `url(${imageUrl})` }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-dark-gray via-transparent to-transparent opacity-90" />
+          
+          {/* Play button overlay */}
+          <div className="absolute bottom-4 right-4">
+            <div className="h-10 w-10 bg-white rounded-full flex items-center justify-center cursor-pointer hover:bg-white/90 transition-colors shadow-lg">
+              <Play size={20} className="text-black ml-1" />
+            </div>
+          </div>
         </div>
         
         <div className="p-6 flex-grow flex flex-col">
           <div className="mb-2 flex flex-wrap gap-2">
             {tags.map((tag) => (
-              <span key={tag} className="inline-block text-xs font-mono bg-medium-gray/40 text-off-white px-2 py-1 rounded">
+              <span key={tag} className="inline-block text-xs font-mono bg-white/10 text-white px-2 py-1 rounded-full">
                 {tag}
               </span>
             ))}
           </div>
           
-          <h3 className="text-xl font-mono font-bold text-off-white mb-2">{title}</h3>
+          <h3 className="text-xl font-mono font-bold text-white mb-2">{title}</h3>
           
-          <p className="text-light-gray text-sm mb-6 flex-grow">{description}</p>
+          <p className="text-white/70 text-sm mb-6 flex-grow">{description}</p>
           
           <div className="flex items-center justify-between pt-4 border-t border-white/5 mt-auto">
             <div className="flex space-x-4">
@@ -57,7 +64,7 @@ const ProjectCard = ({
                 href={githubUrl} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-light-gray hover:text-off-white transition-colors flex items-center gap-1 text-sm font-medium"
+                className="text-white/70 hover:text-white transition-colors flex items-center gap-1 text-sm font-medium"
               >
                 <Github size={16} />
                 <span>Code</span>
@@ -68,7 +75,7 @@ const ProjectCard = ({
                   href={liveUrl} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-light-gray hover:text-off-white transition-colors flex items-center gap-1 text-sm font-medium"
+                  className="text-white/70 hover:text-white transition-colors flex items-center gap-1 text-sm font-medium"
                 >
                   <ExternalLink size={16} />
                   <span>Live</span>
