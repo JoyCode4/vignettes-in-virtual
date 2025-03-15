@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -104,7 +103,8 @@ export default {
 				'slide-up': 'slideUp 0.5s ease-in-out',
 				'slide-down': 'slideDown 0.5s ease-in-out',
 				'slide-left': 'slideLeft 0.5s ease-in-out',
-				'slide-right': 'slideRight 0.5s ease-in-out'
+				'slide-right': 'slideRight 0.5s ease-in-out',
+				"spin-slow": "spin 15s linear infinite",
 			}
 		}
 	},

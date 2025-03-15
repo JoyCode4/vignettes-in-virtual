@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import PageTransition from '@/components/PageTransition';
 import { useEffect, useRef } from 'react';
 import TypewriterText from '@/components/TypewriterText';
+import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 
 const Index = () => {
   const textRef = useRef<HTMLDivElement>(null);
@@ -208,16 +209,45 @@ const Index = () => {
             </div>
             
             <div className="lg:w-1/2">
-              <div className="h-72 bg-gray-800 rounded-xl overflow-hidden shadow-xl shadow-purple-500/10 hover:shadow-purple-500/30 transition-all duration-300 border border-white/5 hover:border-purple-500/20 transform hover:scale-[1.02]">
-                <img 
-                  src="/placeholder.svg" 
-                  alt="Jayesh Wadhonkar" 
-                  className="w-full h-full object-cover"
-                />
+              {/* Replace the placeholder image with interactive profile circle */}
+              <div className="relative flex items-center justify-center mb-10">
+                <div className="absolute w-72 h-72 bg-gradient-to-r from-purple-500/30 to-blue-500/30 rounded-full blur-xl animate-pulse"></div>
+                <div className="absolute w-64 h-64 bg-gradient-to-l from-purple-600/20 to-blue-600/20 rounded-full blur-lg animate-pulse" style={{ animationDelay: '1s' }}></div>
+                
+                {/* Interactive ring around avatar */}
+                <div className="relative w-60 h-60 flex items-center justify-center">
+                  {/* Decorative elements */}
+                  <div className="absolute inset-0 border-2 border-dashed border-purple-400/30 rounded-full animate-spin-slow"></div>
+                  <div className="absolute inset-4 border border-blue-400/40 rounded-full"></div>
+                  
+                  {/* Dots around the circle */}
+                  {[0, 45, 90, 135, 180, 225, 270, 315].map((degree, i) => (
+                    <div 
+                      key={i}
+                      className="absolute w-3 h-3 bg-gradient-to-r from-purple-400 to-blue-400 rounded-full shadow-lg shadow-purple-500/40"
+                      style={{ 
+                        transform: `rotate(${degree}deg) translateY(-120px)`,
+                        opacity: 0.8
+                      }}
+                    ></div>
+                  ))}
+                  
+                  {/* Skill bubbles */}
+                  <div className="absolute -top-4 -left-4 px-3 py-1 bg-black/40 backdrop-blur-sm rounded-full text-xs text-purple-300 border border-purple-500/30 shadow-lg shadow-purple-500/20">React</div>
+                  <div className="absolute top-1/4 -right-8 px-3 py-1 bg-black/40 backdrop-blur-sm rounded-full text-xs text-blue-300 border border-blue-500/30 shadow-lg shadow-blue-500/20">Node.js</div>
+                  <div className="absolute -bottom-2 -right-6 px-3 py-1 bg-black/40 backdrop-blur-sm rounded-full text-xs text-green-300 border border-green-500/30 shadow-lg shadow-green-500/20">Golang</div>
+                  <div className="absolute bottom-1/4 -left-12 px-3 py-1 bg-black/40 backdrop-blur-sm rounded-full text-xs text-pink-300 border border-pink-500/30 shadow-lg shadow-pink-500/20">TypeScript</div>
+                  
+                  {/* Central avatar */}
+                  <Avatar className="w-48 h-48 border-4 border-white/10 shadow-2xl shadow-purple-500/30 hover:shadow-purple-500/50 transition-all duration-500 hover:scale-105">
+                    <AvatarImage src="/lovable-uploads/55557690-2cd7-408a-8074-05a562472ca1.png" alt="Jayesh Profile" className="object-cover" />
+                    <AvatarFallback className="bg-gradient-to-br from-purple-700 to-blue-700 text-white text-3xl">JW</AvatarFallback>
+                  </Avatar>
+                </div>
               </div>
               
               {/* Enhanced Work Experience Section */}
-              <div className="mt-12">
+              <div className="mt-4">
                 <h2 className="text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Work</h2>
                 
                 <div className="space-y-px backdrop-blur-sm bg-black/20 border border-white/10 rounded-xl overflow-hidden shadow-lg hover:shadow-purple-500/20 transition-all duration-300">
