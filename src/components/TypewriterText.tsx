@@ -7,6 +7,7 @@ interface TypewriterTextProps {
   deletingSpeed?: number;
   delayBetweenTexts?: number;
   className?: string;
+  glowColor?: string;
 }
 
 const TypewriterText: React.FC<TypewriterTextProps> = ({
@@ -14,7 +15,8 @@ const TypewriterText: React.FC<TypewriterTextProps> = ({
   typingSpeed = 100,
   deletingSpeed = 50,
   delayBetweenTexts = 1500,
-  className = ''
+  className = '',
+  glowColor = '#8B5CF6'
 }) => {
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
   const [displayText, setDisplayText] = useState('');
@@ -56,11 +58,17 @@ const TypewriterText: React.FC<TypewriterTextProps> = ({
     return () => clearTimeout(timer);
   }, [currentTextIndex, displayText, isDeleting, isWaiting, texts, typingSpeed, deletingSpeed, delayBetweenTexts]);
 
+  const glowStyle = {
+    textShadow: `0 0 10px ${glowColor}, 0 0 20px ${glowColor}80, 0 0 30px ${glowColor}40`,
+  };
+
   return (
-    <span className={className}>
-      {displayText}
-      <span className="inline-block w-1 h-6 ml-1 bg-white/70 animate-pulse">|</span>
-    </span>
+    <div className={`${className} flex items-center`}>
+      <span style={glowStyle}>{displayText}</span>
+      <span className="inline-block w-1 h-6 ml-1 bg-white animate-pulse" style={{
+        boxShadow: `0 0 5px ${glowColor}, 0 0 10px ${glowColor}80`
+      }}>|</span>
+    </div>
   );
 };
 
