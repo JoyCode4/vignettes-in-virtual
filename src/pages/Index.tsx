@@ -35,20 +35,21 @@ const Index = () => {
       <div className="page-container bg-dark-gray text-white">
         {/* Header Section with Title */}
         <section className="section-container pt-32 pb-16 relative">
-          {/* Animated background gradient */}
-          <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-br from-purple-600/10 to-blue-600/5 rounded-full blur-[100px] -z-10"></div>
+          {/* Enhanced animated background gradients */}
+          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-purple-600/10 via-blue-600/5 to-indigo-500/10 rounded-full blur-[120px] -z-10 animate-pulse"></div>
+          <div className="absolute bottom-0 right-0 w-3/4 h-1/2 bg-gradient-to-tl from-blue-500/10 via-purple-600/5 to-pink-500/5 rounded-full blur-[150px] -z-10 animate-pulse" style={{animationDelay: '2s'}}></div>
           
           <div ref={textRef} className="opacity-0" style={{ animationDelay: '0.3s', animationFillMode: 'forwards' }}>
             <div className="flex flex-col lg:flex-row lg:items-center justify-between">
-              <div className="mb-12 lg:mb-0">
-                <div className="flex flex-col md:flex-row md:items-center md:gap-6">
-                  <h1 className="font-mono text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold mb-6 md:mb-0 relative">
-                    <span className="block">Full-stack</span>
-                    <span className="block">Developer</span>
+              <div className="mb-12 lg:mb-0 max-w-3xl">
+                <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
+                  <h1 className="font-mono text-6xl sm:text-7xl md:text-8xl font-bold relative inline-flex flex-col">
+                    <span className="bg-gradient-to-r from-white via-white/90 to-white/80 bg-clip-text text-transparent">Full-stack</span>
+                    <span className="bg-gradient-to-r from-white via-white/90 to-white/80 bg-clip-text text-transparent">Developer</span>
                     <div className="absolute -bottom-2 left-0 w-1/3 h-1 bg-gradient-to-r from-purple-600 to-blue-500"></div>
                   </h1>
                   
-                  <div className="ml-0 md:ml-4 p-4 rounded-xl bg-black/30 backdrop-blur-sm border border-white/10 shadow-lg transform hover:scale-105 transition-all duration-300">
+                  <div className="ml-0 mt-8 md:mt-0 md:ml-4 p-5 rounded-xl backdrop-blur-sm border border-white/10 shadow-lg transition-all duration-300 hover:border-purple-500/30 bg-gradient-to-br from-black/50 to-purple-900/10 transform hover:scale-105 hover:shadow-purple-500/20">
                     <TypewriterText 
                       texts={[
                         "Hello! I'm Jayesh",
@@ -60,6 +61,8 @@ const Index = () => {
                       delayBetweenTexts={2000}
                       className="text-xl md:text-2xl font-mono"
                       glowColor="#9b87f5"
+                      glowIntensity="high"
+                      cursorStyle="block"
                     />
                   </div>
                 </div>
@@ -68,13 +71,13 @@ const Index = () => {
                   My goal is to write maintainable, clean, and understandable code to make the development process enjoyable.
                 </p>
                 
-                {/* Social Media Links */}
+                {/* Enhanced Social Media Links */}
                 <div className="flex flex-wrap gap-3">
                   <a 
                     href="https://github.com/JoyCode4" 
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 px-4 py-2 bg-black/40 backdrop-blur-sm rounded-full text-white hover:bg-white/10 transition-all duration-300 border border-white/5 hover:border-white/20 shadow-lg hover:shadow-purple-500/20"
+                    className="flex items-center justify-center gap-2 px-4 py-2 bg-black/40 backdrop-blur-sm rounded-full text-white hover:bg-white/10 transition-all duration-300 border border-white/5 hover:border-purple-500/50 shadow-lg hover:shadow-purple-500/20 transform hover:translate-y-[-2px]"
                   >
                     <Github size={18} className="text-purple-300" />
                     <span>GitHub</span>
@@ -83,25 +86,25 @@ const Index = () => {
                     href="https://www.linkedin.com/in/jayesh-wadhonkar-184539168" 
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 px-4 py-2 bg-black/40 backdrop-blur-sm rounded-full text-white hover:bg-white/10 transition-all duration-300 border border-white/5 hover:border-white/20 shadow-lg hover:shadow-blue-500/20"
+                    className="flex items-center justify-center gap-2 px-4 py-2 bg-black/40 backdrop-blur-sm rounded-full text-white hover:bg-white/10 transition-all duration-300 border border-white/5 hover:border-blue-500/50 shadow-lg hover:shadow-blue-500/20 transform hover:translate-y-[-2px]"
                   >
                     <Linkedin size={18} className="text-blue-300" />
                     <span>LinkedIn</span>
                   </a>
                   <a 
-                    className="flex items-center justify-center gap-2 px-4 py-2 bg-black/40 backdrop-blur-sm rounded-full text-white hover:bg-white/10 transition-all duration-300 border border-white/5 hover:border-white/20 shadow-lg hover:shadow-green-500/20"
+                    className="flex items-center justify-center gap-2 px-4 py-2 bg-black/40 backdrop-blur-sm rounded-full text-white hover:bg-white/10 transition-all duration-300 border border-white/5 hover:border-green-500/50 shadow-lg hover:shadow-green-500/20 transform hover:translate-y-[-2px]"
                   >
                     <MessageSquare size={18} className="text-green-300" />
                     <span>Message</span>
                   </a>
                   <a 
-                    className="flex items-center justify-center gap-2 px-4 py-2 bg-black/40 backdrop-blur-sm rounded-full text-white hover:bg-white/10 transition-all duration-300 border border-white/5 hover:border-white/20 shadow-lg hover:shadow-blue-500/20"
+                    className="flex items-center justify-center gap-2 px-4 py-2 bg-black/40 backdrop-blur-sm rounded-full text-white hover:bg-white/10 transition-all duration-300 border border-white/5 hover:border-blue-500/50 shadow-lg hover:shadow-blue-500/20 transform hover:translate-y-[-2px]"
                   >
                     <Facebook size={18} className="text-blue-300" />
                     <span>Facebook</span>
                   </a>
                   <a 
-                    className="flex items-center justify-center gap-2 px-4 py-2 bg-black/40 backdrop-blur-sm rounded-full text-white hover:bg-white/10 transition-all duration-300 border border-white/5 hover:border-white/20 shadow-lg hover:shadow-pink-500/20"
+                    className="flex items-center justify-center gap-2 px-4 py-2 bg-black/40 backdrop-blur-sm rounded-full text-white hover:bg-white/10 transition-all duration-300 border border-white/5 hover:border-pink-500/50 shadow-lg hover:shadow-pink-500/20 transform hover:translate-y-[-2px]"
                   >
                     <Instagram size={18} className="text-pink-300" />
                     <span>Instagram</span>
@@ -109,11 +112,11 @@ const Index = () => {
                 </div>
               </div>
               
-              {/* Projects CTA */}
+              {/* Enhanced Projects CTA */}
               <div className="relative">
                 <Link
                   to="/projects"
-                  className="flex items-center justify-between px-6 py-3 w-60 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-full hover:brightness-110 transition-all duration-300 font-medium shadow-lg shadow-purple-500/20 hover:shadow-purple-600/40"
+                  className="flex items-center justify-between px-6 py-3 w-60 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-full hover:brightness-110 transition-all duration-300 font-medium shadow-lg shadow-purple-500/20 hover:shadow-purple-600/40 transform hover:translate-y-[-2px]"
                 >
                   <span>Projects</span>
                   <div className="bg-white text-purple-700 rounded-full h-8 w-8 flex items-center justify-center">
@@ -125,9 +128,9 @@ const Index = () => {
           </div>
         </section>
         
-        {/* Projects Carousel Preview */}
+        {/* Enhanced Projects Carousel Preview */}
         <section className="section-container py-12 overflow-hidden relative">
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-32 bg-gradient-to-r from-purple-600/5 to-blue-600/5 blur-[100px] -z-10"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-80 bg-gradient-to-r from-purple-600/10 via-blue-600/5 to-pink-500/10 blur-[100px] -z-10 animate-pulse" style={{animationDuration: '8s'}}></div>
           
           <h2 className="text-2xl font-mono mb-8 font-semibold text-center relative">
             <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">Featured Projects</span>
@@ -153,9 +156,9 @@ const Index = () => {
           </div>
         </section>
         
-        {/* About Section */}
+        {/* About Section with enhanced styling */}
         <section className="section-container py-16 relative">
-          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-600/5 to-purple-600/5 blur-[100px] -z-10"></div>
+          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-600/10 via-purple-600/5 to-pink-500/5 blur-[100px] -z-10 animate-pulse" style={{animationDuration: '10s'}}></div>
           
           <h2 className="text-3xl font-mono mb-10 font-semibold text-center relative">
             <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">About me</span>
@@ -167,40 +170,40 @@ const Index = () => {
               <h3 className="text-xl mb-4">Hello! I'm Jayesh, I'm a <span className="font-semibold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">full-stack developer</span>.</h3>
               <p className="text-light-gray">More than 1 year experience.</p>
               
-              {/* Skills Cards */}
+              {/* Enhanced Skills Cards */}
               <div className="mt-12 space-y-6">
-                <div className="backdrop-blur-sm bg-black/20 border border-white/10 rounded-xl p-6 shadow-lg hover:shadow-purple-500/10 transition-all duration-300">
+                <div className="backdrop-blur-sm bg-black/20 border border-white/10 rounded-xl p-6 shadow-lg hover:shadow-purple-500/20 transition-all duration-300 hover:border-purple-500/30 transform hover:translate-y-[-2px]">
                   <h4 className="mb-4 text-purple-300">Front-end</h4>
                   <div className="flex flex-wrap gap-2">
                     {["TypeScript", "React", "Vue", "CSS", "Redux Toolkit", "Next.js", "HTML", "Jest", "GraphQL", "React Native", "TailwindCSS", "Express"].map((skill) => (
-                      <span key={skill} className="text-sm text-gray-400 hover:text-white transition-colors duration-300">/ {skill} </span>
+                      <span key={skill} className="text-sm text-gray-400 hover:text-white transition-colors duration-300 hover:text-purple-200">/ {skill} </span>
                     ))}
                   </div>
                 </div>
                 
-                <div className="backdrop-blur-sm bg-black/20 border border-white/10 rounded-xl p-6 shadow-lg hover:shadow-blue-500/10 transition-all duration-300">
+                <div className="backdrop-blur-sm bg-black/20 border border-white/10 rounded-xl p-6 shadow-lg hover:shadow-blue-500/20 transition-all duration-300 hover:border-blue-500/30 transform hover:translate-y-[-2px]">
                   <h4 className="mb-4 text-blue-300">Styles</h4>
                   <div className="flex flex-wrap gap-2">
                     {["SCSS", "SASS", "PostCSS", "Ant.UI", "MUI", "Material UI"].map((skill) => (
-                      <span key={skill} className="text-sm text-gray-400 hover:text-white transition-colors duration-300">/ {skill} </span>
+                      <span key={skill} className="text-sm text-gray-400 hover:text-white transition-colors duration-300 hover:text-blue-200">/ {skill} </span>
                     ))}
                   </div>
                 </div>
                 
-                <div className="backdrop-blur-sm bg-black/20 border border-white/10 rounded-xl p-6 shadow-lg hover:shadow-green-500/10 transition-all duration-300">
+                <div className="backdrop-blur-sm bg-black/20 border border-white/10 rounded-xl p-6 shadow-lg hover:shadow-green-500/20 transition-all duration-300 hover:border-green-500/30 transform hover:translate-y-[-2px]">
                   <h4 className="mb-4 text-green-300">Back-end</h4>
                   <div className="flex flex-wrap gap-2">
                     {["Golang", "SQL", "ORM", "PostgreSQL", "MySQL", "MongoDB", "JDBC", "Redis", "Kafka", "Node", "Rest", "Typescript", "Microservices"].map((skill) => (
-                      <span key={skill} className="text-sm text-gray-400 hover:text-white transition-colors duration-300">/ {skill} </span>
+                      <span key={skill} className="text-sm text-gray-400 hover:text-white transition-colors duration-300 hover:text-green-200">/ {skill} </span>
                     ))}
                   </div>
                 </div>
                 
-                <div className="backdrop-blur-sm bg-black/20 border border-white/10 rounded-xl p-6 shadow-lg hover:shadow-orange-500/10 transition-all duration-300">
+                <div className="backdrop-blur-sm bg-black/20 border border-white/10 rounded-xl p-6 shadow-lg hover:shadow-orange-500/20 transition-all duration-300 hover:border-orange-500/30 transform hover:translate-y-[-2px]">
                   <h4 className="mb-4 text-orange-300">DevOps</h4>
                   <div className="flex flex-wrap gap-2">
                     {["Nginx", "Brctf", "Docker", "CI/CD", "AWS", "Bash"].map((skill) => (
-                      <span key={skill} className="text-sm text-gray-400 hover:text-white transition-colors duration-300">/ {skill} </span>
+                      <span key={skill} className="text-sm text-gray-400 hover:text-white transition-colors duration-300 hover:text-orange-200">/ {skill} </span>
                     ))}
                   </div>
                 </div>
@@ -208,7 +211,7 @@ const Index = () => {
             </div>
             
             <div className="lg:w-1/2">
-              <div className="h-72 bg-gray-800 rounded-xl overflow-hidden shadow-xl shadow-purple-500/10 hover:shadow-purple-500/20 transition-all duration-300 border border-white/5">
+              <div className="h-72 bg-gray-800 rounded-xl overflow-hidden shadow-xl shadow-purple-500/10 hover:shadow-purple-500/30 transition-all duration-300 border border-white/5 hover:border-purple-500/20 transform hover:scale-[1.02]">
                 <img 
                   src="/placeholder.svg" 
                   alt="Jayesh Wadhonkar" 
@@ -216,11 +219,11 @@ const Index = () => {
                 />
               </div>
               
-              {/* Work Experience Section */}
+              {/* Enhanced Work Experience Section */}
               <div className="mt-12">
                 <h2 className="text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Work</h2>
                 
-                <div className="space-y-px backdrop-blur-sm bg-black/20 border border-white/10 rounded-xl overflow-hidden shadow-lg">
+                <div className="space-y-px backdrop-blur-sm bg-black/20 border border-white/10 rounded-xl overflow-hidden shadow-lg hover:shadow-purple-500/20 transition-all duration-300">
                   <WorkExperience 
                     period="2023 - Present"
                     duration="6 months"
@@ -250,19 +253,19 @@ const Index = () => {
   );
 };
 
-// Project Preview Component
+// Project Preview Component with enhanced styling
 const ProjectPreview = ({ title, image, direction }: { title: string, image: string, direction: 'left' | 'right' | 'none' }) => {
   return (
-    <div className="flex-shrink-0 w-80 h-32 relative rounded-xl overflow-hidden group shadow-lg hover:shadow-purple-500/20 transition-all duration-300 transform hover:scale-[1.02]">
+    <div className="flex-shrink-0 w-80 h-32 relative rounded-xl overflow-hidden group shadow-lg hover:shadow-purple-500/30 transition-all duration-300 transform hover:scale-[1.03] border border-white/5 hover:border-purple-500/20">
       <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-transparent z-10"></div>
       <img src={image} alt={title} className="w-full h-full object-cover" />
       <div className="absolute inset-0 z-20 p-4 flex flex-col justify-between">
-        <p className="text-sm text-white">{title}</p>
+        <p className="text-sm text-white group-hover:text-purple-200 transition-colors">{title}</p>
         <div className="flex justify-between items-center">
-          <button className="text-xs text-white bg-purple-600/80 px-3 py-1 rounded-full hover:bg-purple-500 transition-colors">
+          <button className="text-xs text-white bg-purple-600/90 px-3 py-1 rounded-full hover:bg-purple-500 transition-colors shadow-md hover:shadow-purple-500/50">
             Read more
           </button>
-          <div className="h-6 w-6 bg-white rounded-full flex items-center justify-center transform group-hover:rotate-45 transition-transform duration-300">
+          <div className="h-6 w-6 bg-white rounded-full flex items-center justify-center transform group-hover:rotate-45 transition-transform duration-300 shadow-md">
             {direction === 'left' && <ArrowLeft size={12} className="text-purple-700" />}
             {direction === 'right' && <ArrowRight size={12} className="text-purple-700" />}
             {direction === 'none' && <ArrowRight size={12} className="text-purple-700" />}
@@ -273,7 +276,7 @@ const ProjectPreview = ({ title, image, direction }: { title: string, image: str
   );
 };
 
-// Work Experience Component
+// Work Experience Component with enhanced styling
 const WorkExperience = ({ 
   period, 
   duration, 

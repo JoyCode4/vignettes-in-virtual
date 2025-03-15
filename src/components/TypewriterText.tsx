@@ -8,6 +8,9 @@ interface TypewriterTextProps {
   delayBetweenTexts?: number;
   className?: string;
   glowColor?: string;
+  glowIntensity?: 'low' | 'medium' | 'high';
+  cursorStyle?: 'line' | 'block' | 'underscore';
+  cursorColor?: string;
 }
 
 const TypewriterText: React.FC<TypewriterTextProps> = ({
@@ -16,7 +19,10 @@ const TypewriterText: React.FC<TypewriterTextProps> = ({
   deletingSpeed = 50,
   delayBetweenTexts = 1500,
   className = '',
-  glowColor = '#8B5CF6'
+  glowColor = '#8B5CF6',
+  glowIntensity = 'medium',
+  cursorStyle = 'line',
+  cursorColor
 }) => {
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
   const [displayText, setDisplayText] = useState('');
@@ -58,16 +64,72 @@ const TypewriterText: React.FC<TypewriterTextProps> = ({
     return () => clearTimeout(timer);
   }, [currentTextIndex, displayText, isDeleting, isWaiting, texts, typingSpeed, deletingSpeed, delayBetweenTexts]);
 
-  const glowStyle = {
-    textShadow: `0 0 10px ${glowColor}, 0 0 20px ${glowColor}80, 0 0 30px ${glowColor}40`,
+  // Define glow intensity levels
+  const glowIntensities = {
+    low: {
+      textShadow: `0 0 5px ${glowColor}80, 0 0 10px ${glowColor}40`,
+    },
+    medium: {
+      textShadow: `0 0 10px ${glowColor}, 0 0 20px ${glowColor}80, 0 0 30px ${glowColor}40`,
+    },
+    high: {
+      textShadow: `0 0 15px ${glowColor}, 0 0 30px ${glowColor}, 0 0 45px ${glowColor}80, 0 0 60px ${glowColor}40`,
+    },
   };
+
+  // Get the appropriate glow style
+  const glowStyle = glowIntensities[glowIntensity];
+
+  // Define cursor styles
+  let cursorElement;
+  const cursorColorToUse = cursorColor || glowColor;
+  
+  switch (cursorStyle) {
+    case 'block':
+      cursorElement = (
+        <span 
+          className="inline-block w-3 h-6 ml-1 bg-white animate-pulse" 
+          style={{
+            backgroundColor: cursorColorToUse,
+            boxShadow: `0 0 5px ${cursorColorToUse}, 0 0 10px ${cursorColorToUse}80`
+          }}
+        />
+      );
+      break;
+    case 'underscore':
+      cursorElement = (
+        <span 
+          className="inline-block w-3 h-1 ml-1 bg-white animate-pulse" 
+          style={{
+            backgroundColor: cursorColorToUse,
+            marginBottom: '-3px',
+            boxShadow: `0 0 5px ${cursorColorToUse}, 0 0 10px ${cursorColorToUse}80`
+          }}
+        >_</span>
+      );
+      break;
+    case 'line':
+    default:
+      cursorElement = (
+        <span 
+          className="inline-block w-0.5 h-6 ml-1 bg-white animate-pulse" 
+          style={{
+            backgroundColor: cursorColorToUse,
+            boxShadow: `0 0 5px ${cursorColorToUse}, 0 0 10px ${cursorColorToUse}80`
+          }}
+        >|</span>
+      );
+  }
 
   return (
     <div className={`${className} flex items-center`}>
-      <span style={glowStyle}>{displayText}</span>
-      <span className="inline-block w-1 h-6 ml-1 bg-white animate-pulse" style={{
-        boxShadow: `0 0 5px ${glowColor}, 0 0 10px ${glowColor}80`
-      }}>|</span>
+      <span 
+        className="transition-all duration-200"
+        style={glowStyle}
+      >
+        {displayText}
+      </span>
+      {cursorElement}
     </div>
   );
 };
