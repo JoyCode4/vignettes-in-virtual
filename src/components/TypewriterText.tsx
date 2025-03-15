@@ -11,6 +11,7 @@ interface TypewriterTextProps {
   glowIntensity?: 'low' | 'medium' | 'high';
   cursorStyle?: 'line' | 'block' | 'underscore';
   cursorColor?: string;
+  darkBackground?: boolean;
 }
 
 const TypewriterText: React.FC<TypewriterTextProps> = ({
@@ -22,7 +23,8 @@ const TypewriterText: React.FC<TypewriterTextProps> = ({
   glowColor = '#8B5CF6',
   glowIntensity = 'medium',
   cursorStyle = 'line',
-  cursorColor
+  cursorColor,
+  darkBackground = true
 }) => {
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
   const [displayText, setDisplayText] = useState('');
@@ -88,7 +90,7 @@ const TypewriterText: React.FC<TypewriterTextProps> = ({
     case 'block':
       cursorElement = (
         <span 
-          className="inline-block w-3 h-6 ml-1 bg-white animate-pulse" 
+          className="inline-block w-3 h-6 ml-1 animate-pulse" 
           style={{
             backgroundColor: cursorColorToUse,
             boxShadow: `0 0 5px ${cursorColorToUse}, 0 0 10px ${cursorColorToUse}80`
@@ -99,7 +101,7 @@ const TypewriterText: React.FC<TypewriterTextProps> = ({
     case 'underscore':
       cursorElement = (
         <span 
-          className="inline-block w-3 h-1 ml-1 bg-white animate-pulse" 
+          className="inline-block w-3 h-1 ml-1 animate-pulse" 
           style={{
             backgroundColor: cursorColorToUse,
             marginBottom: '-3px',
@@ -112,7 +114,7 @@ const TypewriterText: React.FC<TypewriterTextProps> = ({
     default:
       cursorElement = (
         <span 
-          className="inline-block w-0.5 h-6 ml-1 bg-white animate-pulse" 
+          className="inline-block w-0.5 h-6 ml-1 animate-pulse" 
           style={{
             backgroundColor: cursorColorToUse,
             boxShadow: `0 0 5px ${cursorColorToUse}, 0 0 10px ${cursorColorToUse}80`
@@ -124,7 +126,7 @@ const TypewriterText: React.FC<TypewriterTextProps> = ({
   return (
     <div className={`${className} flex items-center`}>
       <span 
-        className="transition-all duration-200"
+        className={`transition-all duration-200 ${darkBackground ? 'text-white' : 'text-dark-gray'}`}
         style={glowStyle}
       >
         {displayText}

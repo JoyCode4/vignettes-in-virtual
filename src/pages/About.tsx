@@ -2,6 +2,7 @@
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import PageTransition from '@/components/PageTransition';
+import TypewriterText from '@/components/TypewriterText';
 
 const About = () => {
   const skills = [
@@ -31,12 +32,32 @@ const About = () => {
 
   return (
     <PageTransition>
-      <div className="page-container">
+      <div className="page-container bg-dark-gray text-white">
         <main className="pt-20">
+          {/* Enhanced animated background gradients */}
+          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-purple-600/10 via-blue-600/5 to-indigo-500/10 rounded-full blur-[120px] -z-10 animate-pulse"></div>
+          <div className="absolute bottom-0 right-0 w-3/4 h-1/2 bg-gradient-to-tl from-blue-500/10 via-purple-600/5 to-pink-500/5 rounded-full blur-[150px] -z-10 animate-pulse" style={{animationDelay: '2s'}}></div>
+          
           <section id="about" className="section-container">
-            <h2 className="section-title">... About me ...</h2>
+            <h2 className="font-mono text-6xl font-bold mb-6 bg-gradient-to-r from-white via-white/90 to-white/80 bg-clip-text text-transparent">About me</h2>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div className="mt-4 mb-8">
+              <TypewriterText 
+                texts={[
+                  "Get to know me better",
+                  "Skills & Experience",
+                  "Education & Background"
+                ]}
+                typingSpeed={70}
+                delayBetweenTexts={2000}
+                className="text-xl md:text-2xl font-mono"
+                glowColor="#9b87f5"
+                glowIntensity="high"
+                cursorStyle="block"
+              />
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-12">
               <div className="space-y-6 animate-slide-right" style={{ animationDelay: '0.1s' }}>
                 <h3 className="font-mono text-2xl font-semibold text-off-white">Hello! I'm Jayesh, a <span className="text-gradient">software engineer</span>.</h3>
                 
@@ -57,23 +78,25 @@ const About = () => {
                 <div className="pt-4">
                   <Link 
                     to="/contact" 
-                    className="inline-flex items-center justify-center px-6 py-3 neo-blur hover-lift text-off-white font-medium"
+                    className="flex items-center justify-between px-6 py-3 w-48 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-full hover:brightness-110 transition-all duration-300 font-medium shadow-lg shadow-purple-500/20 hover:shadow-purple-600/40 transform hover:translate-y-[-2px]"
                   >
                     <span>Get in touch</span>
-                    <ArrowRight size={16} className="ml-2" />
+                    <div className="bg-white text-purple-700 rounded-full h-8 w-8 flex items-center justify-center">
+                      <ArrowRight size={16} />
+                    </div>
                   </Link>
                 </div>
               </div>
               
               <div className="space-y-8 animate-slide-left" style={{ animationDelay: '0.3s' }}>
-                <div className="glass-card p-6 space-y-4">
+                <div className="backdrop-blur-sm bg-black/20 border border-white/10 rounded-xl p-6 shadow-lg hover:shadow-purple-500/20 transition-all duration-300 hover:border-purple-500/30 transform hover:translate-y-[-2px]">
                   <h4 className="font-mono text-lg font-medium text-off-white">Technical Skills</h4>
                   
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-2 mt-4">
                     {skills.map((skill) => (
                       <span 
                         key={skill}
-                        className="inline-block text-sm font-mono bg-medium-gray/40 text-off-white px-3 py-1 rounded-full"
+                        className="inline-block text-sm font-mono bg-black/40 text-off-white px-3 py-1 rounded-full border border-white/5"
                       >
                         {skill}
                       </span>
@@ -84,30 +107,30 @@ const About = () => {
                   <p className="text-light-gray text-sm">English, Hindi, Marathi</p>
                 </div>
                 
-                <div className="glass-card p-6 space-y-4">
+                <div className="backdrop-blur-sm bg-black/20 border border-white/10 rounded-xl p-6 shadow-lg hover:shadow-blue-500/20 transition-all duration-300 hover:border-blue-500/30 transform hover:translate-y-[-2px]">
                   <h4 className="font-mono text-lg font-medium text-off-white">Education</h4>
                   
-                  <div className="space-y-6">
+                  <div className="space-y-6 mt-4">
                     {education.map((edu, index) => (
-                      <div key={index} className="border-l-2 border-medium-gray pl-4 space-y-1">
+                      <div key={index} className="border-l-2 border-purple-500/30 pl-4 space-y-1">
                         <h5 className="text-off-white font-medium">{edu.degree}</h5>
                         <p className="text-light-gray text-sm">{edu.institution}</p>
                         <div className="flex justify-between text-xs">
                           <span className="text-light-gray">{edu.year}</span>
-                          <span className="text-light-gray">{edu.score}</span>
+                          <span className="text-purple-300">{edu.score}</span>
                         </div>
                       </div>
                     ))}
                   </div>
                 </div>
                 
-                <div className="glass-card p-6 space-y-4">
+                <div className="backdrop-blur-sm bg-black/20 border border-white/10 rounded-xl p-6 shadow-lg hover:shadow-green-500/20 transition-all duration-300 hover:border-green-500/30 transform hover:translate-y-[-2px]">
                   <h4 className="font-mono text-lg font-medium text-off-white">Experience</h4>
                   
-                  <div className="border-l-2 border-medium-gray pl-4 space-y-1">
+                  <div className="border-l-2 border-green-500/30 pl-4 space-y-1 mt-4">
                     <h5 className="text-off-white font-medium">Software Engineer</h5>
                     <p className="text-light-gray text-sm">Yardi</p>
-                    <p className="text-xs text-light-gray">6 months</p>
+                    <p className="text-xs text-green-300">6 months</p>
                   </div>
                 </div>
               </div>

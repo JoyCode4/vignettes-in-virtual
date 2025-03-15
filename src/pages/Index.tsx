@@ -1,4 +1,3 @@
-
 import { ArrowRight, ArrowLeft, Github, Linkedin, Facebook, Instagram, MessageSquare } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import PageTransition from '@/components/PageTransition';
@@ -42,32 +41,30 @@ const Index = () => {
           <div ref={textRef} className="opacity-0" style={{ animationDelay: '0.3s', animationFillMode: 'forwards' }}>
             <div className="flex flex-col lg:flex-row lg:items-center justify-between">
               <div className="mb-12 lg:mb-0 max-w-3xl">
-                <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
-                  <h1 className="font-mono text-6xl sm:text-7xl md:text-8xl font-bold relative inline-flex flex-col">
-                    <span className="bg-gradient-to-r from-white via-white/90 to-white/80 bg-clip-text text-transparent">Full-stack</span>
-                    <span className="bg-gradient-to-r from-white via-white/90 to-white/80 bg-clip-text text-transparent">Developer</span>
-                    <div className="absolute -bottom-2 left-0 w-1/3 h-1 bg-gradient-to-r from-purple-600 to-blue-500"></div>
-                  </h1>
-                  
-                  <div className="ml-0 mt-8 md:mt-0 md:ml-4 p-5 rounded-xl backdrop-blur-sm border border-white/10 shadow-lg transition-all duration-300 hover:border-purple-500/30 bg-gradient-to-br from-black/50 to-purple-900/10 transform hover:scale-105 hover:shadow-purple-500/20">
-                    <TypewriterText 
-                      texts={[
-                        "Hello! I'm Jayesh",
-                        "I build amazing websites",
-                        "React & Node Expert",
-                        "UI/UX Enthusiast"
-                      ]}
-                      typingSpeed={70}
-                      delayBetweenTexts={2000}
-                      className="text-xl md:text-2xl font-mono"
-                      glowColor="#9b87f5"
-                      glowIntensity="high"
-                      cursorStyle="block"
-                    />
-                  </div>
+                <h1 className="font-mono text-6xl sm:text-7xl md:text-8xl font-bold relative inline-flex flex-col">
+                  <span className="bg-gradient-to-r from-white via-white/90 to-white/80 bg-clip-text text-transparent">Full-stack</span>
+                  <span className="bg-gradient-to-r from-white via-white/90 to-white/80 bg-clip-text text-transparent">Developer</span>
+                  <div className="absolute -bottom-2 left-0 w-1/3 h-1 bg-gradient-to-r from-purple-600 to-blue-500"></div>
+                </h1>
+                
+                <div className="mt-6 mb-8">
+                  <TypewriterText 
+                    texts={[
+                      "Hello! I'm Jayesh",
+                      "I build amazing websites",
+                      "React & Node Expert",
+                      "UI/UX Enthusiast"
+                    ]}
+                    typingSpeed={70}
+                    delayBetweenTexts={2000}
+                    className="text-xl md:text-2xl font-mono"
+                    glowColor="#9b87f5"
+                    glowIntensity="high"
+                    cursorStyle="block"
+                  />
                 </div>
                 
-                <p className="text-light-gray text-lg max-w-xl mt-8 mb-8 leading-relaxed">
+                <p className="text-light-gray text-lg max-w-xl mb-8 leading-relaxed">
                   My goal is to write maintainable, clean, and understandable code to make the development process enjoyable.
                 </p>
                 
