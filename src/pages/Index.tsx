@@ -1,8 +1,8 @@
-
 import { ArrowRight, ArrowLeft, Github, Linkedin, Facebook, Instagram, MessageSquare } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import PageTransition from '@/components/PageTransition';
 import { useEffect, useRef } from 'react';
+import TypewriterText from '@/components/TypewriterText';
 
 const Index = () => {
   const textRef = useRef<HTMLDivElement>(null);
@@ -41,6 +41,20 @@ const Index = () => {
                   <span className="block">Full-stack</span>
                   <span className="block">Developer</span>
                 </h1>
+                
+                <h2 className="text-2xl md:text-3xl font-mono text-light-gray mb-6 flex items-center">
+                  <TypewriterText 
+                    texts={[
+                      "Hello! I'm Jayesh, I'm a full-stack developer.",
+                      "I build web applications with React and Node.js.",
+                      "I love creating clean, maintainable code."
+                    ]}
+                    typingSpeed={70}
+                    delayBetweenTexts={2000}
+                    className="text-gradient"
+                  />
+                </h2>
+                
                 <p className="text-light-gray text-lg max-w-xl mb-8">
                   My goal is to write maintainable, clean, and understandable code to process development was enjoyable.
                 </p>
